@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen Home Page | Light Node v9.3</title>
+<style>
+:root { 
+    --main-text: #000000; 
+    --elite-grey-alpha: rgba(255, 255, 255, 0.85); 
+    
+    --gradient-1: #ffffff; 
+    --gradient-2: #d1d9e6; 
+    --gradient-3: #8e9aaf; 
+    --gradient-4: #cbd5e0; 
+    
+    --border-strong: #000000; 
+}
+
+body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: #fff; color: var(--main-text); overflow: hidden; line-height: 1.5; font-weight: 500; }
+
+
+.bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 25%, var(--gradient-3) 50%, var(--gradient-4) 100%); background-size: 300% 300%; animation: gradientMove 10s ease infinite; opacity: 1; }
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+header { background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); border-bottom: 2px solid var(--border-strong); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+.con { max-width: 1100px; margin: 0 auto; padding: 0 25px; display: flex; justify-content: space-between; align-items: center; }
+
+.logo { font-size: 18px; font-weight: 900; letter-spacing: 3px; border: 3px solid #000; padding: 4px 12px; text-transform: uppercase; color: #000; transition: 0.3s; }
+.logo:hover { background: #000; color: #fff; }
+
+nav { display: flex; gap: 25px; }
+.ni { position: relative; padding: 5px 0; }
+.nl { text-decoration: none; color: #000; font-size: 11px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+.nl::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #000; transition: 0.4s; }
+.ni:hover .nl::after { width: 100%; }
+
+.hero { padding: 25px 0 10px; text-align: center; }
+
+/* Временной Узел */
+.time-core { position: relative; display: inline-flex; flex-direction: column; align-items: center; padding: 25px; margin-bottom: 5px; }
+
+.hex-frame {
+    position: absolute; width: 240px; height: 130px; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: transparent; border: 2px solid rgba(0,0,0,0.3); 
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    z-index: 1;
+}
+
+.clk { font-size: 72px; font-weight: 200; color: #000; letter-spacing: -4px; font-variant-numeric: tabular-nums; z-index: 10; position: relative; }
+
+/* Дата и День */
+.date-box { 
+    z-index: 10; position: relative; font-size: 10px; font-weight: 800; 
+    text-transform: uppercase; letter-spacing: 3px; color: #000; margin-top: -5px; 
+    background: rgba(255,255,255,0.4); padding: 2px 10px; border-radius: 4px;
+}
+
+.tk-w { 
+    background: var(--elite-grey-alpha); color: #000; padding: 14px 0; 
+    overflow: hidden; margin: 20px 0; border-top: 1px solid rgba(0,0,0,0.05); 
+    border-bottom: 2px solid #000; backdrop-filter: blur(10px);
+}
+.tk { display: inline-block; white-space: nowrap; animation: tk 35s linear infinite; font-size: 11px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; }
+@keyframes tk { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+.sv-l { max-width: 680px; margin: 30px auto; padding: 0 25px; position: relative; }
+.sv-i { 
+    opacity: 0; transform: translateX(-15px); padding: 18px 15px; 
+    font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); color: #000;
+    transition: 0.3s; cursor: pointer; animation: sIn 0.7s ease forwards;
+    border-left: 3px solid transparent;
+}
+.sv-i:hover { background: rgba(255,255,255,0.8); padding-left: 35px; border-left: 3px solid #000; }
+
+@keyframes sIn { to { opacity: 1; transform: translateX(0); } }
+.s1{animation-delay:0.2s}.s2{animation-delay:0.4s}.s3{animation-delay:0.6s}.s4{animation-delay:0.8s}
+.s5{animation-delay:1s}.s6{animation-delay:1.2s}.s7{animation-delay:1.4s}.s8{animation-delay:1.6s; font-weight:900; border:none;}
+
+.admin-card {
+    position: fixed; bottom: 30px; right: 30px; 
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    z-index: 1000; background: rgba(255,255,255,0.9); padding: 18px;
+    border-radius: 12px; border: 2px solid #000; box-shadow: 0 10px 40px rgba(0,0,0,0.1); backdrop-filter: blur(10px);
+}
+
+/* 1. ОКРУЖНОСТЬ ДЛЯ ФОТО */
+.profile-frame { 
+    width: 200px; height: 200px; border-radius: 50%; border: 2px solid #000; 
+    overflow: hidden; background: #fafafa; /* Фон, если фото не загрузится */
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* 2. НАСТРОЙКА ОТОБРАЖЕНИЯ ФОТО */
+.profile-frame img { 
+    width: 100%; height: 100%; 
+    object-fit: cover; /* Фото заполнит круг, не искажаясь */
+    border-radius: 50%; /* Дополнительная гарантия круга */
+}
+
+.admin-status { font-size: 10px; font-weight: 900; color: #000; letter-spacing: 2px; text-transform: uppercase; }
+
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header>
+<div class="con">
+    <div class="logo">INVIKAR</div>
+    <nav>
+        <div class="ni"><a class="nl">Network</a></div>
+        <div class="ni"><a class="nl">Security</a></div>
+        <div class="ni"><a class="nl" onclick="alert('Module Sync: Complete // IN 2028')">Info</a></div>
+    </nav>
+</div>
+</header>
+
+<section class="hero">
+    <div class="con">
+        <div class="time-core">
+            <div class="hex-frame"></div>
+            <div class="clk" id="clk">00:00</div>
+            <div class="date-box" id="date-box">LOADING DATE</div>
+        </div>
+        <p style="text-transform:uppercase;font-size:10px;letter-spacing:5px;color:#000;font-weight:700;">Honest Management // Executive Light Node</p>
+    </div>
+</section>
+
+<div class="tk-w">
+    <div class="tk">STATUS: OPERATIONAL • NODE_ID: 77-INVICTUS • ENCRYPTED SESSION ACTIVE • VERIFIED BY KAREN TECH • NO LEAKS • PARTNER SYNC COMPLETE • MONGT 2026 Core • v9.3 •</div>
+</div>
+
+<div class="sv-l">
+    <div class="sv-i s1">• Enterprise and Desktop Application Development</div>
+    <div class="sv-i s2">• Graphic Design & Photo Editing </div>
+    <div class="sv-i s3">• Custom Software Development</div>
+    <div class="sv-i s4">• Video Editing (Intermediate Level) </div>
+    <div class="sv-i s5">• Windows 11 Configuration & Optimization</div>
+    <div class="sv-i s6">• Malware Analysis & System Sanitization</div>
+    <div class="sv-i s7">• Clean and configure/upgrade PC</div>
+    <div class="sv-i s8"> Advanced IT Solutions by Karen Grigoryan</div>
+</div>
+
+<div class="admin-card">
+    <div class="profile-frame">
+        <img src="msdmin2.jpg" alt="Verified Administrator">
+    </div>
+    <div class="admin-status">Verified Administrator</div>
+    <input type="text" placeholder="AUTH TOKEN" style="width:100px; font-size:10px; text-align:center; border:1px solid #000; padding:5px; background: transparent; font-weight:800; color:#000;">
+</div>
+
+<script>
+function updateSystem() {
+    const now = new Date();
+    document.getElementById('clk').textContent = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+    
+    const options = { weekday: 'long', month: 'short', day: 'numeric' };
+    document.getElementById('date-box').textContent = now.toLocaleDateString('en-US', options).toUpperCase();
+}
+setInterval(updateSystem, 1000); 
+updateSystem();
+</script>
+</body>
+</html>
