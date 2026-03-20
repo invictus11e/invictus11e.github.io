@@ -2,22 +2,33 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Legacy Premium | System Architect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGACY PREMIUM | System Architect</title>
     <style>
-        body { background: #0a0a0a; color: #00ff41; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { border: 1px solid #00ff41; padding: 40px; box-shadow: 0 0 20px #00ff4133; text-align: center; max-width: 600px; }
-        h1 { font-size: 2.5em; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
-        p { color: #888; line-height: 1.6; }
-        .status { color: #fff; background: #222; padding: 5px 10px; display: inline-block; margin-top: 20px; border-radius: 3px; }
-        .specs { margin-top: 30px; font-size: 0.9em; color: #00ff41; opacity: 0.7; }
+        body { background: #050505; color: #00ff41; font-family: 'Courier New', monospace; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .terminal { border: 1px solid #00ff41; padding: 30px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); max-width: 600px; width: 90%; background: #0a0a0a; }
+        h1 { font-size: 1.8em; text-transform: uppercase; border-bottom: 1px solid #00ff41; padding-bottom: 10px; margin-top: 0; }
+        .status-line { color: #fff; background: #1a1a1a; padding: 5px 10px; margin: 15px 0; font-weight: bold; }
+        .bio { color: #888; line-height: 1.5; margin-bottom: 20px; }
+.sec {color:red}
+        .specs { font-size: 0.85em; color: #00ff41; border-top: 1px dashed #00ff41; pt: 10px; padding-top: 10px; }
+        .cursor { display: inline-block; width: 10px; height: 18px; background: #00ff41; animation: blink 1s infinite; vertical-align: middle; }
+        @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>LEGACY PREMIUM</h1>
-        <p>System Architect | Cybersecurity & Hardware Expert</p>
-        <div class="status">State: Senior (OFF-GRID)</div>
-        <div class="specs">CORE: i7-8700 | 2026y. | Karen Grigoryan (Pending...)</div>
+    <div class="terminal">
+        <h1>LEGACY PREMIUM <span class="cursor"></span></h1>
+        <p class="bio">Системный архитектор. Анализ аппаратного обеспечения, оптимизация ОС</p>
+        <div class="status-line">SITE STATUS: ONLINE [V. 1.0.26]</div>
+        <div class="specs">
+            > NODE_NAME: <i class="sec">Karen Grigoryan</i><br>
+            > CPU: INTEL i5-8700 (12C/6T)<br>
+            > RAM: 32GB DDR4 XMP <br>
+            > STORAGE:Lexar 240 m2 NVme <br>
+            > AUDIO: RAZER HeadShark V2 x
+        </div>
+        <p style="margin-top: 20px; font-size: 0.7em; color: #444;"></p>
     </div>
 </body>
-</html
+</html>
