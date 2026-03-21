@@ -36,7 +36,7 @@ body {
 
 .bg-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 .node { 
-    position: absolute; background: rgba(255, 255, 255, 0.35); 
+    position: absolute; background: rgba(255, 255, 255, 0.35);  
     border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.5); 
     animation: float 25s linear infinite; 
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
@@ -108,7 +108,7 @@ nav { display: flex; gap: 30px; }
 .laptop-view-box { 
     width: 100%; height: 260px; border-radius: 8px; border: 4px solid #fff; 
     overflow: hidden; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-    /* НОВАЯ СТЕКЛЯННАЯ ПОДЛОЖКА */
+
     background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
 }
 .laptop-view-box img { width: 100%; height: 100%; object-fit: cover; }
@@ -124,10 +124,10 @@ nav { display: flex; gap: 30px; }
 
 .admin-card { position: fixed; bottom: 40px; right: 40px; z-index: 3000; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .profile-frame { 
-    width: 250px; height: 250px; /* УМЕНЬШЕННЫЙ РАЗМЕР */
+    width: 250px; height: 250px; 
     border-radius: 50%; border: 6px solid #fff; 
     overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); background: #fff;
-    margin-bottom: 25px; /* ОТСТУП СНИЗУ ОТ ФОТО */
+    margin-bottom: 25px; 
 }
 .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -176,7 +176,7 @@ nav { display: flex; gap: 30px; }
             <li class="sv-i">Malware Analysis & System Sanitization</li>
             <li class="sv-i">Clean and configure/upgrade PC</li>
         </ul>
-        <div class="footer-line">Advanced IT Solutions by System Architect (Karen G.) </div>
+        <div class="footer-line">Advanced IT Solutions by Karen </div>
     </div>
 
     <div class="panel laptop-panel">
@@ -190,7 +190,7 @@ nav { display: flex; gap: 30px; }
 
 <div class="admin-card">
     <div class="profile-frame"><img src="msdmin2.jpg" alt="System Architect"></div>
-    <div class="footer-line">Karen Grigoryan</div>
+    <div class="admin-status">Karen Grigoryan</div>
 </div>
 
 <div id="wAbout" class="side-widget"><h3>Executive Node</h3><p>Senior Infrastructure & Software Engineer. verified Node Armenia.</p>
