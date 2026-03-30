@@ -20,19 +20,15 @@ Unauthorized copying, distribution, or use is prohibited.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karen Grigoryan's Offical Web Site </title>
+<title>INVI-KAR Official Web Site</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@100;700&display=swap" rel="stylesheet">
 <style>
 :root { 
     --main-text: #1e293b; 
     --gunmetal-blue: #34495e; 
-    --slate-steel: #475569; 
     --accent-blue: #1e3a8a;
     --neon-blue: #3b82f6;
-   
-    --glass-bg: rgba(255, 255, 255, 0.6);
-
-    --radius: 12px;
+    --glass-bg: rgba(255, 255, 255, 0.7);
 }
 
 @keyframes plasma {
@@ -50,19 +46,12 @@ body {
     min-height: 100vh;
 }
 
-
 .bg-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-.node { 
-    position: absolute; background: rgba(255, 255, 255, 0.35);  
-    border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.5); 
-    animation: float 25s linear infinite; 
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-}
-@keyframes float { from { transform: translateY(110vh) rotate(0deg); opacity: 1; } to { transform: translateY(-30vh) rotate(360deg); opacity: 0.15; } }
-
+.node { position: absolute; background: rgba(255, 255, 255, 0.35); border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.5); animation: float 25s linear infinite; }
+@keyframes float { from { transform: translateY(110vh); } to { transform: translateY(-30vh); } }
 
 header { 
-    background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px);
     border-bottom: 3px solid var(--gunmetal-blue); padding: 12px 0; position: sticky; top: 0; z-index: 1000;
 }
 .con-header { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
@@ -75,87 +64,63 @@ header {
 .clk { font-family: 'JetBrains Mono', monospace; font-size: 34px; font-weight: 700; color: #000; line-height: 1; }
 .date-str { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--gunmetal-blue); margin-top: 4px; }
 
-/* Intelligence/Contact Справа */
-nav { display: flex; gap: 30px; }
-.nl { text-decoration: none; color: #000; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
+nav { display: flex; gap: 20px; align-items: center; }
+.nl { text-decoration: none; color: #000; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
 .nl:hover { color: var(--accent-blue); }
+
+.lang-switch { display: flex; gap: 8px; margin-left: 15px; border-left: 1px solid #ccc; padding-left: 15px; }
+.lang-btn { font-size: 10px; font-weight: 900; color: #94a3b8; cursor: pointer; transition: 0.3s; }
+.lang-btn.active { color: var(--gunmetal-blue); border-bottom: 2px solid var(--gunmetal-blue); }
 
 .tk-w { background: var(--gunmetal-blue); padding: 14px 0; margin: 25px 0; overflow: hidden; }
 .tk { display: inline-block; white-space: nowrap; animation: tk 40s linear infinite; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
 @keyframes tk { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-
 .main-grid { 
     max-width: 1150px; margin: 0 auto; padding: 0 30px; 
     display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; 
-    align-items: stretch; 
-    padding-bottom: 180px; 
+    padding-bottom: 100px;
 }
 
 .panel { 
     background: var(--glass-bg); backdrop-filter: blur(10px); 
-    border: 1px solid var(--border); border-radius: var(--radius); 
+    border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; 
     padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
-    display: flex; flex-direction: column; justify-content: space-between;
 }
-
 
 .sv-list { padding: 0; margin: 0; list-style: none; }
 .sv-i { 
-    position: relative; padding: 16px 0 16px 30px; font-size: 14px; font-weight: 700; 
-    border-bottom: 1px solid rgba(51, 65, 85, 0.15); transition: 0.3s; cursor: pointer; color: var(--gunmetal-blue); display: flex; align-items: center; 
+    position: relative; padding: 16px 0 16px 35px; font-size: 14px; font-weight: 700; 
+    border-bottom: 1px solid rgba(51, 65, 85, 0.15); transition: all 0.4s ease; 
+    color: var(--gunmetal-blue); cursor: pointer;
 }
 .sv-i::before { 
-    content: ""; position: absolute; left: 0; width: 8px; height: 8px; 
-    background: var(--gunmetal-blue); border-radius: 50%; opacity: 0.6; transition: 0.3s;
+    content: ""; position: absolute; left: 0; width: 10px; height: 10px; 
+    background: var(--neon-blue); border-radius: 50%; top: 22px;
+    box-shadow: 0 0 10px var(--neon-blue);
 }
-.sv-i:hover { transform: translateX(8px); color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
-.sv-i:hover::before { background: var(--neon-blue); transform: scale(1.4); box-shadow: 0 0 10px var(--neon-blue); opacity: 1; }
+.sv-i:hover { font-size: 16px; color: #000; padding-left: 45px; border-bottom: 2px solid var(--gunmetal-blue); }
 
-.footer-line { 
-    margin-top: 30px; background: var(--slate-steel); color: #fff; 
-    padding: 12px 20px; font-weight: 700; font-size: 11px; 
-    text-transform: uppercase; letter-spacing: 2px; display: inline-block; border-radius: 4px;
-}
-
-.laptop-panel { text-align: center; }
-.laptop-panel h2 { font-size: 13px; font-weight: 900; text-transform: uppercase; color: var(--gunmetal-blue); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-
-
-.laptop-view-box { 
-    width: 100%; height: 260px; border-radius: 8px; border: 4px solid #fff; 
-    overflow: hidden; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-
-    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-}
+.laptop-view-box { width: 100%; height: 260px; border-radius: 8px; border: 4px solid #fff; overflow: hidden; margin-bottom: 25px; }
 .laptop-view-box img { width: 100%; height: 100%; object-fit: cover; }
 
 .btn-sync { 
-    display: block; background: var(--gunmetal-blue); color: #fff; 
-    padding: 18px; text-decoration: none; font-weight: 900; text-transform: uppercase; 
-    letter-spacing: 2px; font-size: 11px; border-radius: var(--radius); 
-    transition: 0.3s;
+    background: var(--gunmetal-blue); color: #fff; padding: 18px; 
+    font-weight: 900; text-transform: uppercase; letter-spacing: 2px; 
+    font-size: 11px; border-radius: 8px; cursor: pointer; text-align: center;
 }
-.btn-sync:hover { background: var(--indigo-deep); transform: scale(1.02); }
 
+footer { width: 100%; padding: 40px 0; text-align: center; }
+.copyright-box { font-size: 11px; font-weight: 700; color: var(--gunmetal-blue); text-transform: uppercase; letter-spacing: 3px; }
 
-.admin-card { position: fixed; bottom: 40px; right: 40px; z-index: 3000; text-align: center; display: flex; flex-direction: column; align-items: center; }
-.profile-frame { 
-    width: 250px; height: 250px; 
-    border-radius: 50%; border: 6px solid #fff; 
-    overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); background: #fff;
-    margin-bottom: 25px; 
-}
+.admin-card { position: fixed; bottom: 40px; right: 40px; z-index: 3000; text-align: center; }
+.profile-frame { width: 250px; height: 250px; border-radius: 50%; border: 6px solid #fff; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); background: #fff; margin-bottom: 25px; }
 .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-.admin-status { 
-    background: var(--gunmetal-blue); color: #fff; 
-    padding: 10px 40px; border-radius: 30px; font-size: 11px; 
-    font-weight: 900; text-transform: uppercase; position: relative; z-index: 10;
-}
-
-.side-widget { position: fixed; top: 110px; right: -450px; width: 340px; background: #fff; border: 2px solid var(--gunmetal-blue); padding: 40px; z-index: 5000; transition: 0.5s; border-radius: 8px; }
+.side-widget { position: fixed; top: 110px; right: -900px; width: 340px; background: #fff; border: 2px solid var(--gunmetal-blue); padding: 50px; z-index: 5000; transition: 0.6s ease; border-radius: 12px; box-shadow: -20px 0 50px rgba(0,0,0,0.1); }
+.side-widget.wide { width: 750px; } 
 .side-widget.active { right: 30px; }
+.close-btn { cursor:pointer; font-weight:900; font-size:11px; border:1px solid #000; padding:10px; display:inline-block; margin-top:20px; text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -172,75 +137,178 @@ nav { display: flex; gap: 30px; }
             </div>
         </div>
         <nav>
-            <a class="nl" onclick="openW('wAbout')">Intelligence</a>
-            <a class="nl" onclick="openW('wContact')">Contact Me</a>
+            <a class="nl" id="nav-about" onclick="openW('wAboutMe')">About Me</a>
+            <a class="nl" id="nav-projects" onclick="openW('wProjects')">My Projects</a>
+            <a class="nl" id="nav-intel" onclick="openW('wAbout')">Intelligence</a>
+            <a class="nl" id="nav-contact" onclick="openW('wContact')">Contact Me</a>
+            <div class="lang-switch">
+                <span class="lang-btn active" id="btn-eng" onclick="switchLang('eng')">ENG</span>
+                <span class="lang-btn" id="btn-rus" onclick="switchLang('rus')">RUS</span>
+            </div>
         </nav>
     </div>
 </header>
 
 <div class="tk-w">
-    <div class="tk">STATUS: OPERATIONAL • NODE_ID: 77-INVICTUS • ENCRYPTED SESSION ACTIVE • VERIFIED BY KAREN TECH • NO LEAKS • PARTNER SYNC COMPLETE • COMPLEX SYSTEMS OPTIMIZATION  • </div>
+    <div class="tk" id="ticker-text">STATUS: OPERATIONAL • NODE_ID: 77-INVICTUS • ENCRYPTED SESSION ACTIVE • VERIFIED BY KAREN TECH • NO LEAKS • PARTNER SYNC COMPLETE • COMPLEX SYSTEMS OPTIMIZATION • </div>
 </div>
 
 <section class="main-grid">
-    <div class="panel services-panel">
-        <h2 style="text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: #000; margin-bottom: 30px;">Expertise & Solutions</h2>
-        <ul class="sv-list">
+    <div class="panel">
+        <h2 id="exp-title" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Expertise & Solutions</h2>
+        <ul class="sv-list" id="sv-list">
             <li class="sv-i">Enterprise and Desktop Application Development</li>
             <li class="sv-i">Graphic Design & Photo Editing</li>
             <li class="sv-i">Custom Software Development</li>
             <li class="sv-i">Windows 11 Configuration & Optimization</li>
             <li class="sv-i">Malware Analysis & System Sanitization</li>
-            <li class="sv-i">Clean and configure/upgrade PC</li>
         </ul>
-        <div class="footer-line">Advanced IT Solutions by Karen </div>
     </div>
 
-    <div class="panel laptop-panel">
-        <h2>Infrastructure Terminal</h2>
-        <div class="laptop-view-box">
-            <img src="klapt.jpg" alt="Hardware View i7">
+    <div class="panel">
+        <h2 id="infra-title">Infrastructure Terminal</h2>
+        <div class="laptop-view-box"><img src="klapt.jpg" alt="Hardware"></div>
+        <div class="btn-sync" onclick="startSync()">
+            <span id="sync-text">Sync Terminal</span>
         </div>
-        <a href="#" class="btn-sync">Sync Terminal</a>
     </div>
 </section>
 
+<footer>
+    <div class="copyright-box">
+        &copy; <span id="copy-year"></span> Karen Grigoryan. <span id="copy-rights">ALL RIGHTS RESERVED.</span>
+    </div>
+</footer>
+
 <div class="admin-card">
-    <div class="profile-frame"><img src="msdmin2.jpg" alt="System Architect"></div>
-    <div class="admin-status">Karen Grigoryan</div>
+    <div class="profile-frame"><img src="msdmin2.jpg" alt="Admin"></div>
+    <div class="admin-status" style="background: var(--gunmetal-blue); color: #fff; padding: 10px 40px; border-radius: 30px; font-size: 11px; font-weight: 900; text-transform: uppercase;">Karen Grigoryan</div>
 </div>
 
-<div id="wAbout" class="side-widget"><h3>Executive Node</h3><p>Senior Infrastructure & Software Engineer. verified Node Armenia.</p>
-    <div onclick="closeW('wAbout')" style="cursor:pointer; font-weight:900; font-size:10px; color:var(--gunmetal-blue); margin-top: 20px;">[ CLOSE ]</div></div>
-<div id="wContact" class="side-widget"><h3>Direct Access</h3><p>Mail To: karentry083@gmail.com </p><div onclick="closeW('wContact')" style="cursor:pointer; font-weight:900; font-size:10px; color:var(--accent-blue); margin-top: 20px;">[ CLOSE ]</div></div>
+<div id="wAboutMe" class="side-widget wide">
+    <h3 id="w-am-t">About Me</h3>
+    <div id="w-am-c">Senior Infrastructure Engineer & Software Developer. Specialist in clean architecture and system optimization. Karen Grigoryan</div>
+    <div onclick="closeW('wAboutMe')" class="close-btn" id="btn-close-1">[ CLOSE ]</div>
+</div>
+
+<div id="wProjects" class="side-widget wide">
+    <h3 id="w-pj-t">My Projects</h3>
+    <div id="w-pj-c">Centralized node for all software assets, Python scripts, and UI designs. [EMPTY FOR NOW]</div>
+    <div onclick="closeW('wProjects')" class="close-btn" id="btn-close-2">[ CLOSE ]</div>
+</div>
+
+<div id="wAbout" class="side-widget">
+    <h3 id="w-in-t">Executive Node</h3>
+    <p id="w-in-c">Verified Node Armenia. Yerevan , st.Minsk</p>
+    <div onclick="closeW('wAbout')" class="close-btn" id="btn-close-3">[ CLOSE ]</div>
+</div>
+
+<div id="wContact" class="side-widget">
+    <h3 id="w-ct-t">Direct Access</h3>
+    <p id="w-ct-c">Mail-To: Karentry083@gmail.com  </p>
+    <div onclick="closeW('wContact')" class="close-btn" id="btn-close-4">[ CLOSE ]</div>
+</div>
 
 <script>
+let currentLang = 'eng';
+
+function updateUI() {
+    const now = new Date();
+    document.getElementById('clk').textContent = String(now.getHours()).padStart(2,'0') + ":" + String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('copy-year').textContent = now.getFullYear();
+    const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
+    let dateStr = now.toLocaleDateString(currentLang === 'rus' ? 'ru-RU' : 'en-US', options).toUpperCase();
+    document.getElementById('date-str').textContent = currentLang === 'rus' ? "СИСТЕМА ГОТОВА | " + dateStr : "SYSTEM READY | " + dateStr;
+}
+setInterval(updateUI, 1000); updateUI();
+
+function startSync() {
+    const text = document.getElementById('sync-text');
+    text.textContent = currentLang === 'rus' ? 'СИНХРОНИЗАЦИЯ...' : 'SYNCING...';
+    setTimeout(() => {
+        text.textContent = currentLang === 'rus' ? 'ГОТОВО' : 'COMPLETED';
+        setTimeout(() => { text.textContent = currentLang === 'rus' ? 'Синхронизация' : 'Sync Terminal'; }, 1000);
+    }, 1500);
+}
+
+function openW(id) { 
+    document.querySelectorAll('.side-widget').forEach(w => w.classList.remove('active')); 
+    document.getElementById(id).classList.add('active'); 
+}
+function closeW(id) { document.getElementById(id).classList.remove('active'); }
+
+function switchLang(lang) {
+    currentLang = lang;
+    const isRus = lang === 'rus';
+    document.getElementById('btn-rus').classList.toggle('active', isRus);
+    document.getElementById('btn-eng').classList.toggle('active', !isRus);
+
+    // МЕНЮ
+    document.getElementById('nav-about').textContent = isRus ? "Обо мне" : "About Me";
+    document.getElementById('nav-projects').textContent = isRus ? "Мои Проекты" : "My Projects";
+    document.getElementById('nav-intel').textContent = isRus ? "Интеллект" : "Intelligence";
+    document.getElementById('nav-contact').textContent = isRus ? "Контакты" : "Contact Me";
+
+    // ПАНЕЛИ
+    document.getElementById('exp-title').textContent = isRus ? "Экспертиза и Решения" : "Expertise & Solutions";
+    document.getElementById('infra-title').textContent = isRus ? "Инфраструктура" : "Infrastructure Terminal";
+    document.getElementById('sync-text').textContent = isRus ? "Синхронизация" : "Sync Terminal";
+    document.getElementById('copy-rights').textContent = isRus ? "ВСЕ ПРАВА ЗАЩИЩЕНЫ." : "ALL RIGHTS RESERVED.";
+
+    // КОНТЕНТ ОКОН (РУССКИЙ ЯЗЫК)
+    if(isRus) {
+        document.getElementById('w-am-t').textContent = "Обо мне";
+        document.getElementById('w-am-c').innerHTML = "Ведущий инженер инфраструктуры и разработчик программного обеспечения. Специализируюсь на создании <b>чистой архитектуры</b> и глубокой оптимизации системных процессов. Имею богатый опыт в автоматизации сложных задач и защите данных. Карен Григорян (epoch 80) ";
+        
+        document.getElementById('w-pj-t').textContent = "Мои Проекты";
+        document.getElementById('w-pj-c').innerHTML = "Централизованный репозиторий программных решений. Включает в себя Python-скрипты для системного анализа, кастомные утилиты для Windows и уникальные UI-интерфейсы. Все проекты строятся на принципах высокой производительности. Карен Григорян";
+        
+        document.getElementById('w-in-t').textContent = "Исполнительный узел";
+        document.getElementById('w-ct-t').textContent = "Прямой доступ";
+        
+        const listItems = document.getElementById('sv-list').children;
+        listItems[0].textContent = "Разработка десктопных и корпоративных приложений";
+        listItems[1].textContent = "Графический дизайн и фотомонтаж";
+        listItems[2].textContent = "Создание кастомного ПО";
+        listItems[3].textContent = "Конфигурация и оптимизация Windows 11";
+        listItems[4].textContent = "Анализ малвари и очистка систем";
+    } else {
+        // КОНТЕНТ ОКОН (ENGLISH)
+        document.getElementById('w-am-t').textContent = "About Me";
+        document.getElementById('w-am-c').innerHTML = "Senior Infrastructure Engineer & Software Developer. Specialist in clean architecture and system optimization. Karen Grigoryan";
+        
+        document.getElementById('w-pj-t').textContent = "My Projects";
+        document.getElementById('w-pj-c').innerHTML = "Centralized node for all software assets, Python scripts, and UI designs. [EMPTY FOR NOW]";
+        
+        document.getElementById('w-in-t').textContent = "Executive Node";
+        document.getElementById('w-ct-t').textContent = "Direct Access";
+
+        const listItems = document.getElementById('sv-list').children;
+        listItems[0].textContent = "Enterprise and Desktop Application Development";
+        listItems[1].textContent = "Graphic Design & Photo Editing";
+        listItems[2].textContent = "Custom Software Development";
+        listItems[3].textContent = "Windows 11 Configuration & Optimization";
+        listItems[4].textContent = "Malware Analysis & System Sanitization";
+    }
+
+    const closeBtns = [1,2,3,4];
+    closeBtns.forEach(num => {
+        document.getElementById('btn-close-'+num).textContent = isRus ? "[ ЗАКРЫТЬ ]" : "[ CLOSE ]";
+    });
+
+    updateUI();
+}
+
 const bg = document.getElementById('bg-elements');
 for (let i = 0; i < 15; i++) {
     const node = document.createElement('div');
     node.className = 'node';
-    const size = Math.random() * 110 + 60 + 'px';
-    node.style.width = size;
-    node.style.height = size;
-    node.style.left = Math.random() * 100 + 'vw';
-    node.style.top = Math.random() * 100 + 'vh';
+    const size = Math.random() * 80 + 40 + 'px';
+    node.style.width = node.style.height = size;
+    node.style.left = Math.random() * 100 + 'vw'; node.style.top = Math.random() * 100 + 'vh';
     node.style.animationDuration = Math.random() * 10 + 15 + 's';
     bg.appendChild(node);
 }
-
-function updateUI() {
-    const now = new Date();
-    document.getElementById('clk').textContent = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
-    const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
-    document.getElementById('date-str').textContent = now.toLocaleDateString('en-US', options).toUpperCase();
-}
-setInterval(updateUI, 1000); updateUI();
-
-function openW(id) {
-    document.querySelectorAll('.side-widget').forEach(w => w.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-function closeW(id) { document.getElementById(id).classList.remove('active'); }
 </script>
 </body>
 </html>
