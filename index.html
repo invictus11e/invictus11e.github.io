@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ============================================================
-COPYRIGHT (C) 2026. ALL RIGHTS RESERVED.
+COPYRIGHT (C) 2026. © 2026 Developer.
 AUTHOR: Karen M. Grigoryan
 LOCATION: YEREVAN, ARMENIA.
 
@@ -132,13 +132,13 @@ footer { width: 100%; padding: 40px 0; text-align: center; }
             <div class="logo-box" onclick="location.reload()"><div class="logo-text">INVI-KAR</div></div>
             <div class="chrono-box">
                 <div class="clk" id="clk">00:00</div>
-                <div class="date-str" id="date-str">SYSTEM READY</div>
+                <div class="date-str" id="date-str">Dashboard Online</div>
             </div>
         </div>
         <nav>
             <a class="nl" id="nav-about" onclick="openW('wAboutMe')">About Me</a>
             <a class="nl" id="nav-projects" onclick="openW('wProjects')">My Projects</a>
-            <a class="nl" id="nav-intel" onclick="openW('wAbout')">Intelligence</a>
+            <a class="nl" id="nav-intel" onclick="openW('wAbout')">System -Tools</a>
             <a class="nl" id="nav-contact" onclick="openW('wContact')">Contact Me</a>
             <div class="lang-switch">
                 <span class="lang-btn active" id="btn-eng" onclick="switchLang('eng')">ENG</span>
@@ -175,7 +175,7 @@ footer { width: 100%; padding: 40px 0; text-align: center; }
 
 <footer>
     <div class="copyright-box">
-        &copy; <span id="copy-year"></span> Karen Grigoryan. <span id="copy-rights">ALL RIGHTS RESERVED.</span>
+        &copy; <span id="copy-year"></span> Karen Grigoryan. <span id="copy-rights">© 2026 Developer.</span>
     </div>
 </footer>
 
@@ -197,13 +197,13 @@ footer { width: 100%; padding: 40px 0; text-align: center; }
 </div>
 
 <div id="wAbout" class="side-widget">
-    <h3 id="w-in-t">Executive Node</h3>
-    <p id="w-in-c">Verified Node Armenia. Yerevan , st.Minsk</p>
+    <h3 id="w-in-t">System Dashboard</h3>
+    <p id="w-in-c">Project Infrastructure. Yerevan , st.Minsk</p>
     <div onclick="closeW('wAbout')" class="close-btn" id="btn-close-3">[ CLOSE ]</div>
 </div>
 
 <div id="wContact" class="side-widget">
-    <h3 id="w-ct-t">Direct Access</h3>
+    <h3 id="w-ct-t">Contact Details</h3>
     <p id="w-ct-c">Mail-To: Karentry083@gmail.com  </p>
     <div onclick="closeW('wContact')" class="close-btn" id="btn-close-4">[ CLOSE ]</div>
 </div>
@@ -217,7 +217,7 @@ function updateUI() {
     document.getElementById('copy-year').textContent = now.getFullYear();
     const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
     let dateStr = now.toLocaleDateString(currentLang === 'rus' ? 'ru-RU' : 'en-US', options).toUpperCase();
-    document.getElementById('date-str').textContent = currentLang === 'rus' ? "СИСТЕМА ГОТОВА | " + dateStr : "SYSTEM READY | " + dateStr;
+    document.getElementById('date-str').textContent = currentLang === 'rus' ? "СИСТЕМА ГОТОВА | " + dateStr : "Dashboard Online | " + dateStr;
 }
 setInterval(updateUI, 1000); updateUI();
 
@@ -245,14 +245,14 @@ function switchLang(lang) {
     // МЕНЮ
     document.getElementById('nav-about').textContent = isRus ? "Обо мне" : "About Me";
     document.getElementById('nav-projects').textContent = isRus ? "Мои Проекты" : "My Projects";
-    document.getElementById('nav-intel').textContent = isRus ? "Интеллект" : "Intelligence";
+    document.getElementById('nav-intel').textContent = isRus ? "Интеллект" : "System -Tools";
     document.getElementById('nav-contact').textContent = isRus ? "Контакты" : "Contact Me";
 
     // ПАНЕЛИ
     document.getElementById('exp-title').textContent = isRus ? "Экспертиза и Решения" : "Expertise & Solutions";
     document.getElementById('infra-title').textContent = isRus ? "Инфраструктура" : "Infrastructure Terminal";
     document.getElementById('sync-text').textContent = isRus ? "Синхронизация" : "Sync Terminal";
-    document.getElementById('copy-rights').textContent = isRus ? "ВСЕ ПРАВА ЗАЩИЩЕНЫ." : "ALL RIGHTS RESERVED.";
+    document.getElementById('copy-rights').textContent = isRus ? "ВСЕ ПРАВА ЗАЩИЩЕНЫ." : "© 2026 Developer.";
 
     // КОНТЕНТ ОКОН (РУССКИЙ ЯЗЫК)
     if(isRus) {
@@ -279,8 +279,8 @@ function switchLang(lang) {
         document.getElementById('w-pj-t').textContent = "My Projects";
         document.getElementById('w-pj-c').innerHTML = "Centralized node for all software assets, Python scripts, and UI designs. [EMPTY FOR NOW]";
         
-        document.getElementById('w-in-t').textContent = "Executive Node";
-        document.getElementById('w-ct-t').textContent = "Direct Access";
+        document.getElementById('w-in-t').textContent = "System Dashboard";
+        document.getElementById('w-ct-t').textContent = "Contact Details";
 
         const listItems = document.getElementById('sv-list').children;
         listItems[0].textContent = "Enterprise and Desktop Application Development";
